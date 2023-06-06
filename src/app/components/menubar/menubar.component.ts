@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, HostListener, OnInit, inject } from '@angular/core';
+import { NavigationEnd, Router, Event } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -8,9 +10,28 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenubarComponent implements OnInit {
   items: MenuItem[] = [];
+  destroyRef: DestroyRef = inject(DestroyRef);
 
-  // TODO: Routingból kell kezelni az active osztályt!
+  @HostListener('document:click', ['$event'])
+  removeFocusAfterClick(event: MouseEvent): void {
+    let targetElement: HTMLElement | null = event.target as HTMLElement;
+    while (targetElement) {
+      if (targetElement.classList.contains('p-menuitem-link')) {
+        targetElement.blur();
+        break;
+      }
+      targetElement = targetElement.parentElement;
+    }
+  }
+
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
+    this.initializeMenuItems();
+    this.subscribeToRouterEventsChanges();
+  }
+
+  initializeMenuItems(): void {
     this.items = this.items = [
       {
         label: 'Kezdőlap',
@@ -32,18 +53,24 @@ export class MenubarComponent implements OnInit {
     ];
   }
 
-  onItemClick(event: MouseEvent): void {
-    const target = event.target as HTMLElement;
-
+  updateMenuItems(): void {
+    const currentRoute = this.router.url;
     const menuItems = document.querySelectorAll('.p-menuitem-link');
     menuItems.forEach((item: Element) => item.classList.remove('active'));
 
-    if (target.nodeName === 'SPAN') {
-      target.parentElement?.blur();
-      target.parentElement?.classList.add('active');
-    } else {
-      target.blur();
-      target.classList.add('active');
-    }
+    menuItems.forEach((item: Element) => {
+      const link = item.getAttribute('href') || '';
+      if ((link === '/' && currentRoute === link) || (link !== '/' && currentRoute.startsWith(link))) {
+        item.classList.add('active');
+      }
+    });
+  }
+
+  subscribeToRouterEventsChanges(): void {
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.updateMenuItems();
+      }
+    });
   }
 }
