@@ -42,13 +42,13 @@
     <div class="col-12 col-offset-0 md:col-8 md:col-offset-2">
       <div class="border-1 p-5 flex justify-content-center align-items-center flex-column">
         <div class="p-float-label w-full mb-5">
-          <input pInputText id="name" class="w-full" />
-          <label htmlFor="username">Név</label>
+          <input pInputText id="name" class="w-full" [autocomplete]="true" />
+          <label for="name">Név</label>
         </div>
 
         <div class="p-float-label w-full mb-5">
-          <input pInputText id="email" class="w-full" type="email" />
-          <label htmlFor="email">E-mail</label>
+          <input pInputText id="email" class="w-full" type="email" [autocomplete]="true" />
+          <label for="email">E-mail</label>
         </div>
 
         <p-button label="Küldés" styleClass="p-button-raised p-button-sm"></p-button>

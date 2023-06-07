@@ -10,7 +10,7 @@ export class GridSystemComponent {
   removeFocusAfterClick(event: MouseEvent): void {
     let targetElement: HTMLElement | null = event.target as HTMLElement;
     while (targetElement) {
-      if (targetElement.classList.contains('p-button')) {
+      if (targetElement.classList.contains('p-menuitem-link') || targetElement.classList.contains('p-button')) {
         targetElement.blur();
         break;
       }

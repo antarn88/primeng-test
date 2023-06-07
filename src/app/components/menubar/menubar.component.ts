@@ -16,7 +16,7 @@ export class MenubarComponent implements OnInit {
   removeFocusAfterClick(event: MouseEvent): void {
     let targetElement: HTMLElement | null = event.target as HTMLElement;
     while (targetElement) {
-      if (targetElement.classList.contains('p-menuitem-link')) {
+      if (targetElement.classList.contains('p-menuitem-link') || targetElement.classList.contains('p-button')) {
         targetElement.blur();
         break;
       }
