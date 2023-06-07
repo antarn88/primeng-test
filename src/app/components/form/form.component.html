@@ -1,1 +1,37 @@
-<h1>Form</h1>
+<div class="main-container">
+  <h1 class="text-center">Termék felvétele</h1>
+  <div class="grid">
+    <div class="col-12 md:col-4 md:col-offset-4">
+      <div class="md:p-4">
+        <form [formGroup]="productForm">
+          <div class="mb-3">
+            <label for="name" class="mb-2 inline-block">Termék neve</label> <br />
+            <input type="text" pInputText formControlName="name" id="name" class="w-full" />
+          </div>
+
+          <div class="mb-3">
+            <label for="productNumber" class="mb-2 inline-block">Cikkszám</label> <br />
+            <input type="text" pInputText formControlName="productNumber" id="productNumber" class="w-full" />
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="mb-2 inline-block">Ár</label> <br />
+            <input type="text" pInputText formControlName="price" id="price" class="w-full" />
+          </div>
+
+          <div class="text-center">
+            <p-button
+              label="Küldés"
+              type="submit"
+              [loading]="loading"
+              (onClick)="onSubmit()"
+              [disabled]="productForm.invalid || loading"
+              styleClass="p-button-raised p-button-sm"
+            ></p-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <p-toast></p-toast>
+</div>
