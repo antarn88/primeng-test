@@ -8,6 +8,7 @@ describe('GridSystemComponent', () => {
   let fixture: ComponentFixture<GridSystemComponent>;
 
   beforeEach(() => {
+    // Arrange
     TestBed.configureTestingModule({
       declarations: [GridSystemComponent],
       imports: [ButtonModule],
@@ -18,6 +19,7 @@ describe('GridSystemComponent', () => {
   });
 
   it('should create', () => {
+    // Assert
     expect(component).toBeTruthy();
   });
 });

@@ -10,6 +10,7 @@ describe('FormComponent', () => {
   let fixture: ComponentFixture<FormComponent>;
 
   beforeEach(() => {
+    // Arrange
     TestBed.configureTestingModule({
       declarations: [FormComponent],
       imports: [ButtonModule, ToastModule, ReactiveFormsModule],
@@ -20,6 +21,7 @@ describe('FormComponent', () => {
   });
 
   it('should create', () => {
+    // Assert
     expect(component).toBeTruthy();
   });
 });

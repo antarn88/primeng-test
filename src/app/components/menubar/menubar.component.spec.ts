@@ -9,6 +9,7 @@ describe('MenubarComponent', () => {
   let fixture: ComponentFixture<MenubarComponent>;
 
   beforeEach(() => {
+    // Arrange
     TestBed.configureTestingModule({
       declarations: [MenubarComponent],
       imports: [MenubarModule, RouterTestingModule],
@@ -19,6 +20,7 @@ describe('MenubarComponent', () => {
   });
 
   it('should create', () => {
+    // Assert
     expect(component).toBeTruthy();
   });
 });

@@ -7,6 +7,7 @@ import { MenubarComponent } from './components/menubar/menubar.component';
 
 describe('AppComponent', () => {
   beforeEach(() =>
+    // Arrange
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, MenubarModule],
       declarations: [AppComponent, MenubarComponent],
@@ -16,6 +17,7 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    // Assert
     expect(app).toBeTruthy();
   });
 });

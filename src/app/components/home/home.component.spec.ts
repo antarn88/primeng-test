@@ -7,6 +7,7 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(() => {
+    // Arrange
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
     });
@@ -16,6 +17,7 @@ describe('HomeComponent', () => {
   });
 
   it('should create', () => {
+    // Assert
     expect(component).toBeTruthy();
   });
 });
