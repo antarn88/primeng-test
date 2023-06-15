@@ -6177,13 +6177,6 @@ primeicons@^6.0.1:
   resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-6.0.1.tgz#431fa7c79825934eefd62087d8e1faa6a9e376ad"
   integrity sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==
 
-primeng@^16.0.0:
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/primeng/-/primeng-16.0.0.tgz#39fa3aa49bfb02c892769722a2b8a4d33762780b"
-  integrity sha512-z8fSYc2rS7gkqHOz+hcIt2bTHFRa/COYIqnYBuit4ATwPC/O//lC/sVRTfFfisy2a2fDXnoOEsNzOK58ZJzB2A==
-  dependencies:
-    tslib "^2.3.0"
-
 proc-log@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/proc-log/-/proc-log-3.0.0.tgz#fb05ef83ccd64fd7b20bbe9c8c1070fc08338dd8"
